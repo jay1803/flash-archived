@@ -8,14 +8,14 @@
 import Foundation
 import WCDBSwift
 
-class Post: TableCodable {
-    var id: Int
-    var content: String
-    var createdAt: Date
-    var updatedAt: Date
+class Note: TableCodable, Identifiable {
+    var id = UUID()
+    var content: String?
+    var createdAt: Date?
+    var updatedAt: Date?
     
     enum CodingKeys: String, CodingTableKey {
-        typealias Root = Post
+        typealias Root = Note
         static let objectRelationalMapping = TableBinding(CodingKeys.self)
         case id
         case content
